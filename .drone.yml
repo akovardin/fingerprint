@@ -1,6 +1,6 @@
 workspace:
   base: /js
-  path: fingerprint
+  path: fingerprints
 
 pipeline:
   upload:
@@ -8,8 +8,8 @@ pipeline:
     user: root
     hosts:
     - 95.213.252.126 # adtech
-    source: ./fingerprint/dist/
-    target: /opt/fingerprint
+    source: ./dist/
+    target: /opt/fingerprints
     secrets: [ rsync_key ]
     script:
-    - systemctl restart teleport.service
+    - systemctl restart fingerprints.service
