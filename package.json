@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "clientjs": "^0.1.11",
     "fingerprintjs2": "^2.0.6",
     "lodash": "^4.17.11"
   },

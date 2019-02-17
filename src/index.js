@@ -1,14 +1,28 @@
-import bar from './bar';
-import _ from 'lodash'
+import Fingerprint2 from 'fingerprintjs2';
+import 'clientjs';
 
-bar();
 
-function component() {
-    let element = document.createElement('div');
+document.querySelector("#button-fingerprint2").addEventListener("click", function () {
+    Fingerprint2.get(function (components) {
+        console.log(components);
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+        let values = components.map(function (component) {
+            return component.value
+        });
+        let murmur = Fingerprint2.x64hash128(values.join(''), 31);
 
-    return element;
-}
+        document.querySelector("#fingerprint2").textContent = murmur;
+    });
 
-document.body.appendChild(component());
+});
+
+document.querySelector("#button-clientjs").addEventListener("click", function () {
+    let client = new ClientJS();
+
+    console.log(client.getFingerprint());
+
+    let fingerprint = client.getFingerprint();
+
+    document.querySelector("#clientjs").textContent = fingerprint;
+
+});
