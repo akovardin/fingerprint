@@ -12,4 +12,4 @@ pipeline:
     target: /opt/fingerprints
     secrets: [ rsync_key ]
     script:
-    - systemctl restart fingerprints.service
+    - systemctl restart nginx
