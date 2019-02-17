@@ -1,0 +1,15 @@
+workspace:
+  base: /js
+  path: fingerprint
+
+pipeline:
+  upload:
+    image: drillster/drone-rsync
+    user: root
+    hosts:
+    - 95.213.252.126 # adtech
+    source: ./fingerprint/dist/
+    target: /opt/fingerprint
+    secrets: [ rsync_key ]
+    script:
+    - systemctl restart teleport.service

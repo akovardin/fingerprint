@@ -10,7 +10,6 @@ document.querySelector("#button-fingerprint2").addEventListener("click", functio
             return component.value
         });
         let murmur = Fingerprint2.x64hash128(values.join(''), 31);
-
         document.querySelector("#fingerprint2").textContent = murmur;
     });
 
@@ -18,10 +17,9 @@ document.querySelector("#button-fingerprint2").addEventListener("click", functio
 
 document.querySelector("#button-clientjs").addEventListener("click", function () {
     let client = new ClientJS();
+    let fingerprint = client.getFingerprint();
 
     console.log(client.getFingerprint());
-
-    let fingerprint = client.getFingerprint();
 
     document.querySelector("#clientjs").textContent = fingerprint;
 
