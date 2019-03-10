@@ -1,5 +1,6 @@
 import Fingerprint2 from 'fingerprintjs2';
 import 'clientjs';
+import '../imprintjs/dist/imprint';
 
 
 document.querySelector("#button-fingerprint2").addEventListener("click", function () {
@@ -23,4 +24,40 @@ document.querySelector("#button-clientjs").addEventListener("click", function ()
 
     document.querySelector("#clientjs").textContent = fingerprint;
 
+});
+
+document.querySelector("#button-imprintjs").addEventListener("click", function () {
+    let browserTests = [
+        "audio",
+        "availableScreenResolution",
+        "canvas",
+        "colorDepth",
+        "cookies",
+        "cpuClass",
+        "deviceDpi",
+        "doNotTrack",
+        "indexedDb",
+        "installedFonts",
+        "language",
+        "localIp",
+        "localStorage",
+        "pixelRatio",
+        "platform",
+        "plugins",
+        "processorCores",
+        "screenResolution",
+        "sessionStorage",
+        "timezoneOffset",
+        "touchSupport",
+        "userAgent",
+        "webGl"
+    ];
+
+    imprint.test(browserTests).then(function(result){
+        let murmur = Fingerprint2.x64hash128(result, 31);
+
+        console.log(murmur)
+
+        document.querySelector("#imprintjs").textContent = murmur;
+    });
 });

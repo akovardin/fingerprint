@@ -2,6 +2,7 @@
   "dependencies": {
     "clientjs": "^0.1.11",
     "fingerprintjs2": "^2.0.6",
+    "imprint": "0.0.0",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
@@ -9,7 +10,7 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
   },
-  "name": "fingerprints",
+  "name": "fingerprint",
   "version": "1.0.0",
   "private": true,
   "scripts": {
